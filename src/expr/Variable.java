@@ -34,11 +34,21 @@ public class Variable extends Expr {
      * @param name the variable's name
      */
     public Variable(String name) { 
-	this.name = name; val = 0; 
+	    this.name = name; val = 0; 
     }
 
-    /** Return the name. */
-    public String toString() { return name; }
+    /** Return the name and value */
+    public String toString() { 
+        return String.format("<%s : %.4e>",name,val); 
+    }
+    
+    /**
+     * Get name of variable
+     * @return Name of variable
+     */
+    public String name() {
+        return name;
+    }
 
     /** Get the value.
      * @return the current value */
