@@ -3,14 +3,14 @@
 
 package expr;
 
-import java.util.Hashtable;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * A variable is a simple expression with a name (like "x") and a
  * settable value.
  */
 public class Variable extends Expr {
-    private static Hashtable variables = new Hashtable();
+    private static ConcurrentHashMap variables = new ConcurrentHashMap();
     
     /**
      * Return a unique variable named `name'.  There can be only one

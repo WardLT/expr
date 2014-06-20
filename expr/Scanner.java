@@ -9,6 +9,8 @@ class Scanner {
 
     private String s;
     private String operatorChars;
+    /** Non-alphanumeric characters that can be used in a variable name */
+    private String variableChars = "_:";
 
     Vector tokens = new Vector();
     int index = -1;
@@ -117,7 +119,8 @@ class Scanner {
 	int from = i;
         while (i < s.length() 
 	       && (Character.isLetter(s.charAt(i))
-		   || Character.isDigit(s.charAt(i))))
+		   || Character.isDigit(s.charAt(i))
+                || variableChars.indexOf(s.charAt(i)) != -1))
             ++i;
 	tokens.addElement(new Token(Token.TT_WORD, 0, s, from, i));
 	return i;

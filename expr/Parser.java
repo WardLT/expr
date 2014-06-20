@@ -4,7 +4,7 @@
 package expr;
 
 import java.io.*;
-import java.util.Hashtable;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.Vector;
 
 
@@ -60,7 +60,7 @@ public class Parser {
 
     /** Set of Variable's that are allowed to appear in input expressions. 
      * If null, any variable is allowed. */
-    private Hashtable allowedVariables = null;
+    private ConcurrentHashMap allowedVariables = null;
 
     /** Adjust the set of allowed variables: create it (if not yet
      * existent) and add optVariable (if it's nonnull).  If the
@@ -70,11 +70,11 @@ public class Parser {
      * @param optVariable the variable to be allowed, or null */
     public void allow(Variable optVariable) {
 	if (null == allowedVariables) {
-	    allowedVariables = new Hashtable();
-	    allowedVariables.put(pi, pi);
+	    allowedVariables = new ConcurrentHashMap();
+	    allowedVariables.put(pi.toString(), pi);
 	}
 	if (null != optVariable)
-	    allowedVariables.put(optVariable, optVariable);
+	    allowedVariables.put(optVariable.toString(), optVariable);
     }
 
     Scanner tokens = null;
@@ -214,7 +214,7 @@ public class Parser {
 	    }
 
 	    Expr var = Variable.make(token.sval);
-	    if (null != allowedVariables && null == allowedVariables.get(var))
+	    if (null != allowedVariables && null == allowedVariables.get(var.toString()))
 		throw error("Unknown variable",
 			    SyntaxException.UNKNOWN_VARIABLE, null);
 	    nextToken();
