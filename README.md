@@ -18,10 +18,12 @@ view.
 Installing it
 =============
 
-To install, put `expr.jar` in your classpath. (You'll need to create
-it first by running `make`, if you downloaded this from GitHub. If you
-don't have `make`, then run `javac -O expr/*.java` and then `jar cf
-expr.jar expr/*.class`.)
+First, make the project using Ant (see instructions in simple-build.xml). 
+Of course, you can always build it using the command line:
+
+	javac src/expr/*.java
+	cd src
+	jar cvf ../dist/expr.jar expr/*
 
 To try it out, put the `expr` directory in your classpath.  Then
 
@@ -113,6 +115,11 @@ changing `parser.allow(x)` to `parser.allow(null)`.
 
 Contact
 =======
+
+This is a slightly modified version of Darius Bacon's work. You can 
+contact Logan Ward (through GitHub), but you might be better off 
+talking to Darius for serious questions. Logan's use of this was 
+rather limited and almost entirely thorugh the Java interface.
 
 See the file [COPYING](COPYING) for copyright info.
 Send questions and bug reports to Darius Bacon <darius@wry.me>.
