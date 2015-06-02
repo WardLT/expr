@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * A variable is a simple expression with a name (like "x") and a
  * settable value.
  */
-public class Variable extends Expr {
+public class Variable extends Expr implements java.io.Serializable {
     private static ConcurrentHashMap variables = new ConcurrentHashMap();
     
     /**
@@ -33,7 +33,7 @@ public class Variable extends Expr {
      * Create a new variable, with initial value 0.
      * @param name the variable's name
      */
-    public Variable(String name) { 
+    private Variable(String name) { 
 	    this.name = name; val = 0; 
     }
 

@@ -2,7 +2,7 @@
 
 package expr;
 
-class Token {
+class Token implements java.io.Serializable {
     public static final int TT_ERROR  = -1;
     public static final int TT_EOF    = -2;
     public static final int TT_NUMBER = -3;

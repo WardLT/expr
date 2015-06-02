@@ -42,7 +42,7 @@ import java.util.Vector;
   <LI>2-3
   <LI>cos(x^2) + sin(x^2)
   <UL> */
-public class Parser {
+public class Parser implements java.io.Serializable {
 
     // Built-in constants
     static private final Variable pi = Variable.make("pi");

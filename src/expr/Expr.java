@@ -9,7 +9,7 @@ package expr;
  * can be evaluated to get its value given its variables' current
  * values.  The operator names are from java.lang.Math where possible.
  */
-public abstract class Expr {
+public abstract class Expr implements java.io.Serializable {
 
     /** Calculate the expression's value.
      * @return the value given the current variable values */

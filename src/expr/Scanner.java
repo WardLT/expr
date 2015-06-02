@@ -5,7 +5,7 @@ package expr;
 import java.util.Vector;
 
 
-class Scanner {
+class Scanner implements java.io.Serializable {
 
     private String s;
     private String operatorChars;
