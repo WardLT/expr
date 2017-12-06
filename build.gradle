@@ -1,0 +1,15 @@
+apply plugin: 'java'
+
+// Distribution instructions
+jar {
+    // Set the name
+    baseName = 'expr'
+
+    // Define output to be the 'dist' direction
+    destinationDir = new File('dist')
+}
+
+// Javadoc instructions
+javadoc {
+    destinationDir = new File('javadoc')
+}
